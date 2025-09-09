@@ -1,0 +1,200 @@
+<ion-grid>
+  <ion-row>
+    <ion-col size="auto">
+
+      <!-- LOGO -->
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" size-md="11">
+            <div (click)="reloadPage()">
+              <img src="assets/img/UNAB_Logo.png" alt="Logo" style="height: 100px;">
+            </div>
+          </ion-col>
+
+          <ion-col class="container" size="12" size-md="1" id="container">
+            <ion-icon 
+              id="wifiIcon" 
+              class="wifi-icon" 
+              name="wifi-outline"></ion-icon>
+            <input 
+              id="codigoInput" 
+              class="codigo-input" 
+              type="number" 
+              placeholder="1234567" 
+              maxlength="7" />
+          </ion-col>
+
+
+        </ion-row>
+      </ion-grid>
+
+      <!-- GRID A: TÍTULOS PRINCIPALES -->
+      <ion-grid id="Grid_A">
+        <ion-row>
+          <ion-col id="A1" class="IonTitulos" size="12" size-md="4">
+            <h4>Control Temperatura C°</h4>
+          </ion-col>
+          <ion-col id="A3" class="IonTitulos" size="12" size-md="4">
+            <h4>Potencia del calentador</h4>
+          </ion-col>
+          <ion-col id="A5" class="IonTitulos" size="12" size-md="4">
+            <h4>Medidor de tiempo T°</h4>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <!-- GRID B: CONTENIDO FUNCIONAL -->
+      <ion-grid id="Grid_B">
+        <ion-row>
+
+          <!-- B1: TEMPERATURA PROMEDIO -->
+          <ion-col id="B1" class="Temperatura_Promedio" size="12" size-md="4" style="height: 200px;">
+            <ion-col id="Termometro_promedio" class="termo_prome">
+              <div class="display_Promedio">
+                <ion-input
+                  type="number"
+                  class="digit-input_Promedio"
+                  [value]="temperature"
+                  [style.color]="isActive ? '#00ff51' : '#ffffff'"
+                  [placeholder]="isActive ? '' : '#ffffff'"
+                  readonly>
+                </ion-input>
+                <span class="degree">°C</span>
+              </div>
+            </ion-col>
+            <ion-col id="botones_bloqueadores">
+              <div class="temperatura-contenedor">
+                <div
+                  class="div-img"
+                  id="boton-temperatura-abajo"
+                  (click)="adjustTemperature(-1)"
+                  [class.disabled]="!isActive">
+                  <img src="assets/img/Abajo.png" alt="Botón Temperatura Abajo" class="img-botonera">
+                </div>
+                <div class="div-img" id="boton-bloqueo" (click)="toggleActiveState()">
+                  <img src="assets/img/Candado.png" alt="Botón Bloqueo" class="img-botonera">
+                </div>
+                <div
+                  class="div-img"
+                  id="boton-temperatura-arriba"
+                  (click)="adjustTemperature(1)"
+                  [class.disabled]="!isActive">
+                  <img src="assets/img/Arriba.png" alt="Botón Temperatura Arriba" class="img-botonera">
+                </div>
+              </div>
+            </ion-col>
+          </ion-col>
+
+          <!-- B3: MODO DE SELECCIÓN -->
+          <ion-col id="B3" class="Modo_Seleccion" size="12" size-md="4" style="height: 200px;">
+            <ion-col id="ionDelRanger" class="ClaseDelB3">
+              <div class="div_porcentaje1"><h4>1%</h4></div>
+              <ion-range
+                class="RangerPrincipal"
+                aria-label="Custom range"
+                [value]="rangeValue"
+                (ionChange)="onRangeChange($event)"
+                [style]="getRangeStyle()">
+              </ion-range>
+              <div class="div_porcentaje100"><h4>{{ getPercentage() }}</h4></div>
+            </ion-col>
+            <ion-col id="MoSelec" class="ModeSoleccione">
+              <h4 class="H6ModoSeleccion">Modo de selección</h4>
+              <h6 style="color: white;">...</h6>
+              <div class="botones-container">
+                <ion-button
+                  class="Botones_Seleccion"
+                  [class.active]="activeButton === 'preCalentado'"
+                  (click)="setActive('preCalentado')">
+                  Pre Calentado
+                </ion-button>
+                <ion-button
+                  class="Botones_Seleccion"
+                  [class.active]="activeButton === 'manual'"
+                  (click)="setActive('manual')">
+                  Manual
+                </ion-button>
+                <ion-button
+                  class="Botones_Seleccion"
+                  [class.active]="activeButton === 'bebe'"
+                  (click)="setActive('bebe')">
+                  Bebe
+                </ion-button>
+              </div>
+            </ion-col>
+          </ion-col>
+
+          <!-- B5: CRONÓMETRO -->
+          <ion-col id="B5" class="Reloj_Cronometro" size="12" size-md="4" style="height: 200px;">
+            <ion-col>
+              <div class="Crono">
+                <span id="cronometro" [class.activo]="cronometroActivo">00:00</span>
+              </div>
+              <button (click)="tuFuncion()"></button>
+            </ion-col>
+
+            <ion-row>
+              <ion-col>
+              <div class="img_Cronometro" (click)="tuFuncion()">
+                <img src="assets/img/Cronometro.png" alt="Botón Imagen">
+              </div>
+            </ion-col>
+
+            <ion-col id="D1" class="AlarmaSonora" size="12" size-md="6">
+              <div class="Alarmma_apagada" (click)="alarmFuncion()">
+                <img src="assets/img/Alarma_apagada.png" alt="Botón Imagen">
+              </div>              
+            </ion-col>
+            </ion-row>
+            
+            
+
+
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+
+      <!-- GRID C: TÍTULOS INFERIORES -->
+      <ion-grid id="Grid_C">
+        <ion-row>
+          <ion-col id="C1" class="IonTitulos" size="12" size-md="6">
+            <h4 class="cursiva">Pesos en Kg </h4>
+          </ion-col>
+          <ion-col id="C3" class="IonTitulos" size="12" size-md="6">
+            <h4 class="cursiva">Temperatura Corporal C°</h4>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <!-- GRID D: FUNCIONES ADICIONALES -->
+      <ion-grid id="Grid_D">
+        <ion-row class="D135">
+
+          <!-- D1: ALARMA -->
+          <ion-col>
+            
+          </ion-col>
+
+          <!-- D3: TEMPERATURA CORPORAL -->
+          <ion-col id="D3" class="Temperatura_Corporal" size="12" size-md="6">
+            <div class="display_corporal">
+              <ion-input
+                type="number"
+                class="digit-input_Corporal"
+                placeholder="00.0"
+                maxlength="3"
+                (ionInput)="onInputChange($event)"
+                (ionBlur)="onInputBlur()"
+                [style.color]="isActivalo ? '#00ff51' : '#00ff51'">
+              </ion-input>
+              <span class="degree">°C</span>
+            </div>
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+
+    </ion-col>
+  </ion-row>
+</ion-grid>

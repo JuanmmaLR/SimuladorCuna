@@ -1,0 +1,172 @@
+/* Generales*/
+ion-col {
+    background-color: #ffffff;
+    border: solid 1px #ffffff;
+    color: #000000;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+  }
+
+  .Seleccionardor{
+    background-color: #008782;
+    border-radius: 10px;
+    margin: 2px;
+    color: #000000;
+    font-weight: bold;
+    text-align: center;
+  }
+  //________________________________________________________________________________
+
+
+  /* Agrega esto al final de tu profesor.page.scss */
+  ion-content.contect {
+    --padding-start: 5px;
+    --padding-end: 5px;
+    --padding-top: 5px;
+    --padding-bottom: 5px;
+  }
+
+/* Asegurar que el header también tenga margen */
+ion-header {
+  padding: 5px;
+}
+  //boton bloqueo estudiante
+  .remote-locked {
+  color: red !important;
+}
+
+
+/* profesor.page.scss */
+.encabezado {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fila-iconos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 5px; /* Reducido para menos espacio */
+}
+
+/* Iconos con tamaño fijo */
+#icono-conexion, #icono-bloqueo {
+  font-size: 30px;
+  width: 30px;
+  height: 30px;
+  min-width: 30px; /* Previene que se reduzcan */
+  // border: 1px solid red; /* Para debug */
+}
+
+.conexcion {
+  color: gray;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+  
+  &.on {
+    color: #00ff00;
+  }
+}
+
+.bloqueoConexion {
+  color: gray;
+  margin-left: 15px; /* Espacio constante entre iconos */
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+  
+  &.locked {
+    color: #ff0000; /* Color rojo cuando está bloqueado */
+  }
+}
+
+.colContraseña {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.contenedor-codigo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 40px; /* Altura fija para evitar desplazamientos */
+}
+
+.texto-conexion {
+  font-size: 0.9rem; /* Tamaño reducido */
+  margin: 0;
+  color: black;
+}
+
+.codigo-generado {
+  font-size: 1rem; /* Tamaño específico para el código */
+  margin: 0;
+  font-weight: bold;
+  color: #3880ff; /* Color azul para mejor visibilidad */
+}
+
+// refresco conexiones
+
+.refresco {
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+
+  &.spin {
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+//________________________________________________________________________________
+#contedio_principal {
+  .mas {
+    cursor: pointer;
+    font-size: 30px;
+    color: #3880ff;
+    margin-bottom: 20px;
+  }
+
+  ion-grid {
+    margin-bottom: 0; /* Elimina el margen inferior entre las grids */
+    padding: 0; /* Elimina el padding */
+  }
+
+  ion-row {
+    margin: 0; /* Elimina el margen entre filas */
+    padding: 0; /* Elimina el padding entre filas */
+  }
+
+  ion-col {
+    padding: 0; /* Elimina el padding dentro de cada columna */
+  }
+
+  .Enviar_01 {
+    margin-top: 10px;
+  }
+}
+
+/* Centrar los botones y alinearlos uno al lado del otro */
+.centrado {
+  display: flex;
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+  gap: 10px; /* Espacio entre los elementos */
+}
+
+/* Para hacer el icono más grande */
+.candado {
+  font-size: 30px; /* Ajusta el tamaño del icono aquí */
+}
+//________________________________________________________________________________
+//footer
+.documento{
+  color: #ff0000;
+}

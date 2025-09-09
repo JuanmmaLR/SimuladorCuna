@@ -1,0 +1,7 @@
+{
+  "name": "SimuladorCuna",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

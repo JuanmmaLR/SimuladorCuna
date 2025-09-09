@@ -1,0 +1,219 @@
+<ion-grid [class.blocked]="shieldActivo">
+  <ion-row>
+    <ion-col size="auto">
+      <!-- LOGO Y CÓDIGO DE ACCESO -->
+      <ion-grid>
+        <ion-row>
+          <ion-col class="logoUNABreinicio" size="12" size-md="11">
+            <div (click)="reloadPage()">
+              <img src="assets/img/UNAB_Logo.png" alt="Logo" style="height: 100px;">
+            </div>
+          </ion-col>
+          <ion-col class="container" size="12" size-md="1">
+            <ion-row class="iconos-container">
+              <ion-icon class="icono" name="wifi-outline" id="wifiIcon"></ion-icon>
+              <ion-icon
+                class="icono"
+                id="icono-bloqueo"
+                name="lock-closed-outline"
+                (click)="toggleBloqueo()"
+                [class.locked-blue]="inputBloqueado">
+              </ion-icon>
+              <ion-icon
+                class="icono"
+                name="shield-outline"
+                id="shieldOutline"
+                (click)="toggleShield()"
+                [class.shield-active]="shieldActivo"
+                aria-hidden="false"
+                aria-label="Escudo de protección"
+                title="Escudo de protección">
+              </ion-icon>
+            </ion-row>
+            <input
+              id="codigoInput"
+              class="codigo-input"
+              type="number"
+              placeholder="1234567"
+              maxlength="7"
+              [(ngModel)]="codigoInput"
+              [disabled]="inputBloqueado"
+              (input)="onCodeInput($event)" />
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <!-- SECCIÓN PRINCIPAL -->
+      <!-- GRID A: TÍTULOS PRINCIPALES -->
+      <ion-grid id="Grid_A">
+        <ion-row>
+          <ion-col id="A1" class="IonTitulos" size="12" size-md="4">
+            <h4>Control temperatura C°</h4>
+          </ion-col>
+          <ion-col id="A3" class="IonTitulos" size="12" size-md="4">
+            <h4>Potencia del calentador</h4>
+          </ion-col>
+          <ion-col id="A5" class="IonTitulos" size="12" size-md="4">
+            <h4>Medidor de tiempo T°</h4>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <!-- GRID B: CONTENIDO FUNCIONAL -->
+      <ion-grid id="Grid_B">
+        <ion-row>
+          <!-- B1: CONTROL DE TEMPERATURA -->
+          <ion-col id="B1" class="Temperatura_Promedio" size="12" size-md="4" style="height: 200px;">
+            <ion-col id="Control-Temperatura" class="Coles-input">
+              <div class="display">
+                <ion-input type="number" class="digit-input" [value]="ControlTemperatura" step="0.1"></ion-input>
+                <span class="degree">°C</span>
+              </div>
+            </ion-col>
+            <ion-row>
+              <ion-col size="12" size-md="6">
+                <div class="Botones" id="botonesConTem" (click)="adjustControlTemperatura(-1)">
+                  <img src="assets/img/Abajo.png" alt="Botón Temperatura Abajo" class="img-botonera">
+                </div>
+              </ion-col>
+              <ion-col size="12" size-md="6">
+                <div class="Botones" id="botonesConTem" (click)="adjustControlTemperatura(1)">
+                  <img src="assets/img/Arriba.png" alt="Botón Temperatura Arriba" class="img-botonera">
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+          <!-- B3: POTENCIA DEL CALENTADOR -->
+          <ion-col id="B3" class="Modo_Seleccion" size="12" size-md="4" style="height: 200px;">
+            <ion-col id="ionDelRanger" class="ClaseDelB3">
+              <div class="div_porcentaje1"><h4>1%</h4></div>
+              <ion-range
+                class="RangerPrincipal"
+                aria-label="Custom range"
+                [value]="rangeValue"
+                (ionChange)="onRangeChange($event)"
+                [style]="getRangeStyle()">
+              </ion-range>
+              <div class="div_porcentaje100"><h4>{{ getPercentage() }}</h4></div>
+            </ion-col>
+            <ion-col id="MoSelec" class="ModeSoleccione">
+              <h4 class="H6ModoSeleccion">Modo de selección</h4>
+              <h6 style="color: white;">...</h6>
+              <div class="botones-container">
+                <ion-button
+                  class="Botones_Seleccion"
+                  [class.active]="activeButton === 'Precalentado'"
+                  (click)="setActive('Precalentado')"
+                  value="Precalentado">
+                  Pre Calentado
+                </ion-button>
+                <ion-button
+                  class="Botones_Seleccion"
+                  [class.active]="activeButton === 'Manual'"
+                  (click)="setActive('Manual')"
+                  value="Manual">
+                  Manual
+                </ion-button>
+                <ion-button
+                  class="Botones_Seleccion"
+                  [class.active]="activeButton === 'Bebe'"
+                  (click)="setActive('Bebe')"
+                  value="Bebe">
+                  Bebe
+                </ion-button>
+              </div>
+            </ion-col>
+          </ion-col>
+          <!-- B5: CRONÓMETRO -->
+          <ion-col id="B5" class="Reloj_Cronometro" size="12" size-md="4" style="height: 200px;">
+            <ion-col class="Coles-input">
+              <div class="display">
+                <span id="cronometro" [class.activo]="cronometroActivo">00:00</span>
+              </div>
+              <button (click)="tuFuncion()"></button>
+            </ion-col>
+            <ion-row>
+              <ion-col size="12" size-md="6">
+                <div class="Botones" (click)="tuFuncion()">
+                  <img src="assets/img/Cronometro.png" alt="Botón Imagen">
+                </div>
+              </ion-col>
+
+
+              <ion-col size="12" size-md="6">
+                <div class="Botones" (click)="alarmFuncion()">
+                  <img [src]="tempAlarmTriggered || saturationAlarmTriggered ? 'assets/img/Alarma_apagada.png' : 'assets/img/Alarma_apagada.png'" alt="Botón Imagen">
+                  <div *ngIf="tempAlarmTriggered" class="alarm-indicator temp-alarm">
+                  </div>
+                  <div *ngIf="saturationAlarmTriggered" class="alarm-indicator saturation-alarm">
+                  </div>
+                </div>
+              </ion-col>
+
+
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <!-- GRID C: TÍTULOS INFERIORES -->
+      <ion-grid id="Grid_C">
+        <ion-row>
+          <ion-col id="C1" class="IonTitulos" size="12" size-md="4">
+            <h4 class="cursiva">Peso en gramos</h4>
+          </ion-col>
+          <ion-col id="C3" class="IonTitulos" size="12" size-md="4">
+            <h4 class="cursiva">Temperatura Corporal C°</h4>
+          </ion-col>
+          <ion-col id="C5" class="IonTitulos" size="12" size-md="4">
+            <h4 class="cursiva">Saturación de Oxígeno %</h4>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <!-- GRID D: ENTRADAS DE DATOS -->
+      <ion-grid id="Grid_D">
+        <ion-row class="D135">
+          <!-- PESO -->
+          <ion-col class="Coles-input" size="12" size-md="4">
+            <div class="display">
+              <ion-input
+                type="number"
+                class="digit-input"
+                [(ngModel)]="pesoValue"
+                (ionInput)="validateInputKG($event)"
+                max="4500"
+                min="400">
+              </ion-input>
+              <span class="degreeKG">Gr</span>
+            </div>
+          </ion-col>
+          <!-- TEMPERATURA CORPORAL -->
+          <ion-col class="Coles-input" size="12" size-md="4">
+            <div class="display">
+              <ion-input
+                type="number"
+                class="digit-input"
+                [(ngModel)]="tempCorporalValue"
+                (ionInput)="validateInputTemCop($event)"
+                max="60"
+                min="0">
+              </ion-input>
+              <span class="degreeKG">C°</span>
+            </div>
+          </ion-col>
+          <!-- SATURACIÓN -->
+          <ion-col id="D5" class="Coles-input" size="12" size-md="4">
+            <div class="display">
+              <ion-input
+                type="number"
+                class="digit-input"
+                (ionInput)="validateInput($event)"
+                [(ngModel)]="saturacionValue"
+                max="100"
+                min="85">
+              </ion-input>
+              <span class="degree">%</span>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-col>
+  </ion-row>
+</ion-grid>

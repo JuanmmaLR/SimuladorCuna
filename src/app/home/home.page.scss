@@ -1,0 +1,20 @@
+ion-col{
+    border: solid 1px #ffffff;
+}
+
+.ion-img {
+    display: flex;
+    justify-content: center; // centra horizontalmente
+    align-items: center;     // centra verticalmente
+    height: 100%;            // asegura que ocupe todo el alto del contenedor padre
+  }
+  
+.imgSatuacion{
+    width: 500px;
+    
+}
+.imgioncol{
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;  
+}

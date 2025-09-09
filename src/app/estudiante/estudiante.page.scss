@@ -1,0 +1,447 @@
+.blocked {
+  // Bloquea toda la interacción por defecto
+  pointer-events: none;
+  user-select: none; // Opcional: evita que el usuario seleccione texto
+
+  // Excepciones (elementos que NO se bloquearán)
+  .container,
+  #B5 {
+    pointer-events: auto;
+    user-select: auto;
+  }
+
+  // Estilo opcional para indicar visualmente el bloqueo
+  // (sin cambiar colores, como pediste)
+  opacity: 0.95;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #ffffff;
+}
+
+.Borde_Principal{
+  border: solid 3px #000000;
+   /* Bordes redondeados */
+  margin: 0;
+  padding: 0;
+}
+
+ion-content {
+  overflow-x: hidden;
+  --background: #ffffff;
+  height: 100vh;
+}
+#row_principal{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+} 
+/*Color de fondo y bordes de las tarjetas*/
+ion-col {
+  color: #000000;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 15px;
+  min-height: 80px;
+  border-radius: 0px; 
+}
+
+ion-col, .Modo_Seleccion, .ClaseDelB3, .ModeSoleccione{
+  background-color: #ffffff;
+  border: solid 1px #ffffff;
+}
+
+/*Diseño de Col Grid */
+.sin-margen {
+  margin: 0;
+  padding: 0;
+}
+
+ion-grid {
+  --ion-grid-padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+ion-row {
+  --ion-row-padding: 0;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Solo usar clases e ids para estilos */
+
+.container {
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+// Aplicamos el mismo tamaño a ambos iconos usando su ID compartido
+
+.iconos-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; // o 'center' si quieres centrarlos
+  flex-wrap: nowrap; // evita que se envuelvan a otra línea
+  gap: 7px; // espacio entre iconos (reemplaza margin-right)
+}
+
+.icono {
+  width: 25px;  // Tamaño aumentado
+  height: 40px; // Mismo alto que ancho para proporción
+  color: gray;
+  transition: all 0.3s ease;
+  margin-right: 1px;
+  flex-shrink: 0; // Evita que se encojan
+
+  &.active {
+    color: orange;
+  }
+
+  &.connected {
+    color: #00ff00;
+  }
+
+  &.locked-blue {
+    color: blue;
+  }
+
+  &.shield-active {
+    color: red; // Puedes elegir otro color
+  }
+}
+
+// Asegurar visibilidad del shield
+#shieldIcon {
+  opacity: 1;
+}
+
+.codigo-input {
+  width: 100px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 14px; // Tamaño de letra reducido (en lugar de usar h6)
+  
+  &:focus {
+    outline: none;
+    border-color: #3880ff;
+  }
+  &:disabled {
+    background-color: #f4f4f4; /* Color de fondo cuando está deshabilitado */
+    opacity: 0.8;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+#Grid_A, #Grid_B, #Grid_C, #Grid_D {
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.Temperatura_Promedio, .Modo_Seleccion{
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  ion-col {
+    min-height: 100px;
+  }
+}
+/*TITULOS*/
+.IonTitulos {
+  white-space: nowrap;
+  position: relative;
+  width: 100%;
+  height: auto; /* Ajusta la altura según sea necesario */
+  font-family: "Myriad Pro", sans-serif; /* Aplica la fuente Times New Roman */
+  font-weight: bold; 
+  margin: 0; /* Elimina cualquier margen alrededor del h6 */
+  color: #131e2f;
+  text-align: center;
+  h4 {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 0; /* Evita margen extra */
+  }
+}
+
+
+/*--------------------------------------------------------------------------------*/
+/*..::B_01::..*/
+/*Temperatura Promedio C°*/  
+.Temperatura_Promedio {
+  padding: 10px;
+  border-radius: 0px;
+
+  
+
+  // Eliminamos las flechas en los inputs de tipo número en navegadores WebKit (Chrome, Safari)
+  .digit-input::-webkit-outer-spin-button,
+  .digit-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+/* Bloqueo Automático */
+#B1 {
+  display: flex;
+  flex-direction: column; /* Alinea los elementos en columna */
+  justify-content: flex-start; /* Alinea los elementos desde el principio */
+  align-items: center; /* Centra todo el contenido horizontalmente */
+  position: relative; /* Posiciona el contenedor de forma relativa */
+  text-align: center;
+}  
+/* El contenedor de los botones se posiciona de forma absoluta en la parte inferior */
+/* Contenedor principal de los botones */
+.temperatura-contenedor {
+display: flex; /* Usa flexbox para alinear los botones */
+flex-direction: row; /* Alinea los botones en una fila */
+justify-content: center; /* Centra los botones horizontalmente */
+align-items: center; /* Centra los botones verticalmente */
+width: 100%; /* Ocupa todo el ancho disponible */
+position: absolute; /* Mantiene la posición en la parte inferior */
+bottom: 20px; /* Separación desde la parte inferior */
+}
+
+/* Estilo para los botones */
+.div-img {
+display: flex; /* Usa flexbox para centrar el contenido */
+justify-content: center; /* Centra la imagen dentro del div */
+align-items: center; /* Centra la imagen verticalmente */
+width: 60px; /* Define un tamaño uniforme para los botones */
+height: 60px; /* Hace que los botones sean cuadrados */
+margin: 0 2px; /* Espaciado entre los botones */
+}
+
+/* Estilo para las imágenes de los botones */
+.img-botonera {
+width: 100%; /* Ajusta la imagen al tamaño del div */
+height: 100%; /* Asegura que la imagen mantenga el tamaño del div */
+object-fit: contain; /* Mantiene la proporción de la imagen */
+}
+
+
+
+/* También asegúrate que los hijos de ambos elementos no generen márgenes */
+.ClaseDelB3 *,
+.ModeSoleccione * {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+
+/*____POTENCIA-CALENTADOR_RANGER____*/
+
+.div_porcentaje1 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+  text-align: left;
+  margin-bottom: 2px;
+}
+
+.div_porcentaje100 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+  text-align: right;
+}
+
+#ionDelRanger {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  gap: 10px;
+}
+
+.RangerPrincipal {
+  --bar-background: #e4e4e4;
+  --bar-background-active: #008782;
+  --bar-height: 20px;
+  --bar-border-radius: 40px;
+  --knob-background: #008782;
+  --knob-size: 30px;
+  --pin-background: #008782;
+  --pin-color: #ffffff;
+  width: 200px;
+  display: block;
+}
+
+
+/*____MODO-SELECCION____*/
+#MoSelec {
+  width: 100%;                      /* Ocupa todo el ancho disponible del contenedor padre */
+  padding: 10px;                    /* Espaciado interno de 10px alrededor del contenido */
+  display: flex;                    /* Usa el modelo flexbox para alinear los elementos hijos */
+  flex-direction: column;          /* Organiza los elementos hijos en columna (de arriba a abajo) */
+  align-items: center;             /* Centra los elementos hijos horizontalmente */
+}
+
+/* Control del margen del H4 respecto a los botones */
+.H6ModoSeleccion {
+  margin-bottom: 6px;              /* Espacio inferior de 6px entre el título y los botones */
+}
+
+.botones-container {
+  display: flex;                   /* Usa flexbox para alinear los botones */
+  flex-wrap: wrap;                 /* Permite que los botones se envuelvan a otra línea si es necesario */
+  justify-content: center;         /* Centra los botones horizontalmente dentro del contenedor */
+  gap: 10px;                        /* Espacio de 10px entre cada botón */
+}
+
+.Botones_Seleccion {
+  width: 110px;                      /* Ancho fijo de cada botón */
+  height: 18px;                     /* Altura fija de cada botón */
+  background: black;               /* Fondo negro por defecto */
+  color: white;                    /* Texto blanco por defecto */
+  font-weight: bold;              /* Fuente en negrita */
+  border-radius: 18px;            /* Bordes redondeados (forma de píldora) */
+  font-size: 12px;                /* Tamaño de fuente de 12px */
+  transition: background 0.3s ease, color 0.3s ease;  /* Animación suave al cambiar color de fondo o texto */
+
+  --background: black;            /* Variables personalizadas (aunque no están en uso aquí) */
+  --color: #00ff00;
+  --border-radius: 10px;
+  --box-shadow: none;
+
+  &.active {
+    background: #00ff00;          /* Fondo verde brillante cuando el botón está activo */
+    color: #00ff00;                 /* Texto negro cuando el botón está activo */
+  }
+}
+
+
+/*..::B_05::..*/
+/*____Medidor de tiempo____*/
+#B5 {
+  text-align: center;
+  display: flex;
+  flex-direction: column; // Asegura que los elementos estén uno debajo del otro
+  align-items: center; // Centra los elementos horizontalmente
+  gap: 0; // Elimina el espaciado entre los elementos
+  margin: 0; // Elimina el margen por defecto del contenedor
+}
+
+.Crono { 
+  background-color: black;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+#cronometro {
+  color: #ffffff;  // Color inicial (placeholder)
+  border-radius: 10px;
+  font-size: 50px;
+  font-family: 'Digital', sans-serif;
+  text-align: center;
+  background: black;
+  border: none;
+  outline: none;
+  width: 100%;
+  transition: color 0.3s ease-in-out;
+}
+
+#cronometro.activo {
+  color: #00ff00; // Cambia a verde cuando inicie el conteo
+}
+
+
+/* Estilos para la imagen del botón */
+
+//alarma 
+.Botones{
+    position: absolute; // Posiciona el div con la imagen de forma absoluta dentro del ion-col
+    bottom: 0; // Pegado a la parte inferior
+    left: 54%; // Centrado horizontalmente
+    transform: translateX(-50%); // Ajusta para centrar completamente
+    
+    cursor: pointer;
+    
+    img {
+      width: 70px; // Ajusta el tamaño de la imagen
+      height: auto; // Mantiene la proporción
+      transition: transform 0.2s ease-in-out;
+    }
+  }
+//______________________________________________________________________________
+//diseño general
+.Coles-input {
+  background-color: #ffffff;
+  padding: 10px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .display {
+    background-color: black;
+    color: #ffffff;
+    font-size: var(--Coles-input-font-size, 24px);
+    font-family: 'Digital', sans-serif;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 390px;
+    height: 69px;
+                   
+  }
+  .digit-input {
+    width: 100%;  
+    height: 100%; 
+    text-align: center;
+    font-size: var(--Coles-input-font-size, 40px);
+    font-weight: bold;
+    border: none;
+    background: transparent;
+    color: #ffffff; /* Se hereda el color para cambiar con .activo */
+    appearance: textfield;
+  }
+
+  .digit-input::-webkit-outer-spin-button,
+  .digit-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    color: #ffffff;
+  }
+
+  .degree {
+    font-size: var(--saturacion-oxigeno-font-size, 24px);
+    margin-left: 5px;
+  }
+}
