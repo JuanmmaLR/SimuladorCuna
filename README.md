@@ -58,4 +58,47 @@ La **arquitectura modular de Angular** facilita el **mantenimiento** y la **esca
 Este diagrama muestra cómo las **diferentes tecnologías del frontend** se integran para crear la **interfaz de usuario final**.  
 Cada tecnología contribuye a **aspectos específicos** que, combinados, forman una **aplicación cohesiva y funcional**.
 
+## **🔧 Tecnologías Utilizadas - Backend**
 
+El **backend** está construido sobre **Node.js** con **Express.js**, proporcionando una **API RESTful** eficiente y **escalable**.  
+
+**Socket.io** maneja las **conexiones WebSocket** para **comunicación en tiempo real**, manteniendo **sesiones activas** y gestionando la **distribución de datos**.  
+
+El sistema incluye **módulos especializados** para **validación de parámetros médicos**, **generación de reportes Excel** y **monitoreo de rendimiento**.  
+La **arquitectura** está diseñada para soportar **múltiples sesiones simultáneas** con **gestión automática de recursos**, incluyendo **detección de desconexiones** y **recuperación ante fallos**.
+
+<img width="3418" height="917" alt="Arquitectura_Del_Backend" src="https://github.com/user-attachments/assets/43517df9-df5c-4366-b623-439df3045136" />
+
+**🗂 Explicación del Diagrama - Backend**
+
+Ilustra la **arquitectura del backend**, mostrando cómo los **diferentes módulos** se integran alrededor del **servicio principal**.  
+Cada módulo tiene **responsabilidades específicas** que contribuyen al **funcionamiento global del sistema**.
+
+## **🔧 Tecnologías Utilizadas - Backend**
+
+El **backend** está construido sobre **Node.js** con **Express.js**, proporcionando una **API RESTful** eficiente y **escalable**.  
+
+**Socket.io** maneja las **conexiones WebSocket** para **comunicación en tiempo real**, manteniendo **sesiones activas** y gestionando la **distribución de datos**.  
+
+El sistema incluye **módulos especializados** para **validación de parámetros médicos**, **generación de informes Excel** y **monitoreo de rendimiento**.  
+
+La **arquitectura** está diseñada para soportar **múltiples sesiones simultáneas** con **gestión automática de recursos**, incluyendo **detección de desconexiones** y **recuperación ante fallos**.
+
+<img width="606" height="421" alt="Estructura" src="https://github.com/user-attachments/assets/fb9bcc4a-31a5-41c3-898e-345f93b0c427" />
+
+## **🚀 Proceso de Instalación y Configuración**
+
+La **instalación del sistema** requiere **Node.js versión 16 o superior**, asegurando compatibilidad con todas las dependencias.  
+
+El proceso comienza con la **clonación del repositorio**, seguido de la **instalación independiente de dependencias** tanto para **frontend** como **backend**.  
+
+La **configuración** implica establecer **variables de entorno** para el **puerto del servidor** y **URLs de API**, con valores predeterminados para **desarrollo local**.  
+
+El **script de inicio** automatiza la **verificación de puertos disponibles** y configura **reglas de firewall** en sistemas Windows, proporcionando una **experiencia de despliegue simplificada** incluso para **usuarios no técnicos**.
+
+<img width="781" height="854" alt="Diagrama_De_Flujo" src="https://github.com/user-attachments/assets/dcccc888-65b7-4bfe-bc00-86bd2558de08" />
+
+**📈 Diagrama de Flujo - Instalación y Configuración**
+
+Este **diagrama de flujo** describe el **proceso completo de instalación y configuración**, desde la **clonación inicial** hasta el **servidor funcionando**.  
+Muestra las **decisiones** y **alternativas** durante el **proceso de despliegue**.
