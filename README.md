@@ -98,7 +98,91 @@ El **script de inicio** automatiza la **verificación de puertos disponibles** y
 
 <img width="781" height="854" alt="Diagrama_De_Flujo" src="https://github.com/user-attachments/assets/dcccc888-65b7-4bfe-bc00-86bd2558de08" />
 
-**📈 Diagrama de Flujo - Instalación y Configuración**
-
-Este **diagrama de flujo** describe el **proceso completo de instalación y configuración**, desde la **clonación inicial** hasta el **servidor funcionando**.  
+Este **diagrama de flujo** describe el **proceso completo de instalación y configuración**, desde la **clonación inicial** hasta el **servidor funcionando.**  
 Muestra las **decisiones** y **alternativas** durante el **proceso de despliegue**.
+
+<img width="426" height="1867" alt="deepseek_mermaid_20251007_91db04" src="https://github.com/user-attachments/assets/a756add9-3d3f-4fd1-840e-d729fe51c2cb" />
+
+**🧭 Diagrama de Journey - Experiencia del Profesor**
+
+Este **diagrama de journey** muestra la **experiencia completa del profesor**, dividida en **cuatro fases principales**.  
+Cada fase incluye **interacciones específicas** entre el **usuario y el sistema**, con **indicación de la complejidad relativa** de cada paso.
+
+## **🎓 Flujo de Uso para Estudiantes**
+
+Los **estudiantes** acceden a la aplicación mediante **navegadores web estándar**, sin necesidad de instalación adicional.  
+La pantalla inicial presenta un **campo para ingresar el código de sesión de 7 dígitos**, con **validación automática de formato**.  
+
+Al conectar exitosamente, la interfaz muestra **cuatro paneles principales** con **parámetros médicos** que se **actualizan en tiempo real** según los datos enviados por el profesor.  
+Los estudiantes pueden interactuar con ciertos **controles** como el **cronómetro** y los **ajustes de temperatura**, recibiendo **retroalimentación inmediata** de sus acciones.  
+El **sistema de alarmas** se activa automáticamente cuando los valores simulados entran en **rangos críticos**, replicando **escenarios médicos realistas**.
+
+---
+
+## **🔧 Arquitectura de Comunicación en Tiempo Real**
+
+La **comunicación en tiempo real** utiliza **WebSockets** mediante **Socket.io**, estableciendo **conexiones persistentes bidireccionales** entre clientes y servidor.  
+El servidor mantiene un **registro de todas las sesiones activas** y sus participantes, utilizando **rooms de Socket.io** para agrupar estudiantes por sesión de profesor.  
+
+El **protocolo** incluye mecanismos de **heartbeat** para detectar **conexiones caídas** y **reconexión automática** con **recuperación de estado**.  
+Los **datos médicos** se validan tanto en el **cliente** como en el **servidor** antes de su procesamiento, asegurando **integridad en toda la cadena de comunicación**.
+
+---
+
+## **🛡️ Sistema de Seguridad y Validación**
+
+El sistema implementa **múltiples capas de seguridad** que incluyen **validación de entrada** en **frontend** y **backend**, **autenticación de profesores** con contraseña y **gestión de sesiones** con **códigos únicos**.  
+
+La **validación de datos médicos** verifica que todos los parámetros estén dentro de **rangos clínicamente realistas** antes de su procesamiento.  
+El **bloqueo remoto** permite a los profesores **controlar el acceso estudiantil** durante las sesiones, mientras que el **sistema de logging** registra todas las actividades para **auditoría**.  
+Las **conexiones** utilizan mecanismos de **timeout automático** y **limpieza de recursos** para prevenir **fugas de memoria**.
+
+---
+
+## **📊 Especificación de Parámetros Médicos**
+
+Los **parámetros médicos simulados** están cuidadosamente calibrados para representar **rangos fisiológicamente realistas**:  
+
+- **Temperatura de control:** 36.0°C a 40.0°C → representa fiebres clínicamente relevantes.  
+- **Temperatura corporal:** 0°C a 60°C → permite simular hipotermia e hipertermia extremas.  
+- **Saturación de oxígeno:** 85% a 100% → cubre desde hipoxia moderada hasta valores normales.  
+- **Peso:** 400g a 4500g → diseñado para simulaciones neonatales.  
+
+Cada parámetro incluye **validación de decimales** y **detección de valores críticos** que **activan alarmas automáticas**.
+
+---
+
+## **🤝 Proceso de Contribución al Proyecto**
+
+El proyecto sigue un **modelo de desarrollo colaborativo** mediante **Git**, donde los contribuyentes realizan **fork** del repositorio principal y trabajan en **ramas feature** específicas.  
+
+Cada cambio debe incluir **pruebas unitarias** y cumplir con los **estándares de código** establecidos.  
+Las **pull requests** son revisadas mediante **code review**, verificando **funcionalidad**, **seguridad** y **rendimiento**.  
+
+La **documentación** debe actualizarse junto con los cambios de código, manteniendo **consistencia** entre características implementadas y documentación.  
+El proceso incluye **integración continua** que ejecuta **suites de prueba automáticas** antes del **merge**.
+
+---
+
+## **📝 Política de Licencias y Uso**
+
+Este software es desarrollado y distribuido bajo **licencia propietaria de la institución universitaria**, reservando **todos los derechos**.  
+
+Su uso está **autorizado exclusivamente para fines educativos** dentro de la institución, **prohibiéndose la distribución, modificación o uso comercial** sin autorización expresa.  
+El **código fuente** se proporciona con fines de **transparencia educativa** y **desarrollo colaborativo interno**.  
+
+Los contribuyentes deben **firmar acuerdos de transferencia de derechos intelectuales** antes de que sus contribuciones sean incorporadas al **código base principal**.
+
+---
+
+## **🆘 Sistema de Soporte Técnico**
+
+El **soporte técnico** se estructura en **tres niveles**:  
+1. **Documentación automática** para problemas comunes.  
+2. **Asistencia entre pares** para la comunidad de desarrolladores.  
+3. **Soporte especializado** para incidentes críticos.  
+
+La documentación incluye **guías de instalación**, **solución de problemas** y **preguntas frecuentes (FAQ)**.  
+Para **reportar issues**, los usuarios utilizan **plantillas estandarizadas** que capturan información del entorno y pasos para reproducir el problema.  
+
+El **equipo de desarrollo** prioriza incidentes según su **severidad**, con **tiempos de respuesta definidos** para cada categoría de problema.
