@@ -1,4 +1,4 @@
-# **Proyecto de Simulación Médica - Universidad**
+# **Proyecto de Simulación Médica - Cuna Radiante**
 
 📋 **Descripción del Proyecto**  
 Proyecto de Simulación Médica es una plataforma educativa avanzada desarrollada específicamente para instituciones universitarias. Facilita el aprendizaje práctico en entornos médicos simulados mediante una arquitectura cliente-servidor robusta que permite la interacción en tiempo real entre profesores y estudiantes.
