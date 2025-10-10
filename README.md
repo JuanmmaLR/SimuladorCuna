@@ -117,7 +117,7 @@ Al conectar exitosamente, la interfaz muestra **cuatro paneles principales** con
 Los estudiantes pueden interactuar con ciertos **controles** como el **cronómetro** y los **ajustes de temperatura**, recibiendo **retroalimentación inmediata** de sus acciones.  
 El **sistema de alarmas** se activa automáticamente cuando los valores simulados entran en **rangos críticos**, replicando **escenarios médicos realistas**.
 
----
+
 
 ## **🔧 Arquitectura de Comunicación en Tiempo Real**
 
@@ -127,7 +127,7 @@ El servidor mantiene un **registro de todas las sesiones activas** y sus partici
 El **protocolo** incluye mecanismos de **heartbeat** para detectar **conexiones caídas** y **reconexión automática** con **recuperación de estado**.  
 Los **datos médicos** se validan tanto en el **cliente** como en el **servidor** antes de su procesamiento, asegurando **integridad en toda la cadena de comunicación**.
 
----
+
 
 ## **🛡️ Sistema de Seguridad y Validación**
 
@@ -137,7 +137,7 @@ La **validación de datos médicos** verifica que todos los parámetros estén d
 El **bloqueo remoto** permite a los profesores **controlar el acceso estudiantil** durante las sesiones, mientras que el **sistema de logging** registra todas las actividades para **auditoría**.  
 Las **conexiones** utilizan mecanismos de **timeout automático** y **limpieza de recursos** para prevenir **fugas de memoria**.
 
----
+
 
 ## **📊 Especificación de Parámetros Médicos**
 
@@ -150,7 +150,7 @@ Los **parámetros médicos simulados** están cuidadosamente calibrados para rep
 
 Cada parámetro incluye **validación de decimales** y **detección de valores críticos** que **activan alarmas automáticas**.
 
----
+
 
 ## **🤝 Proceso de Contribución al Proyecto**
 
@@ -162,7 +162,7 @@ Las **pull requests** son revisadas mediante **code review**, verificando **func
 La **documentación** debe actualizarse junto con los cambios de código, manteniendo **consistencia** entre características implementadas y documentación.  
 El proceso incluye **integración continua** que ejecuta **suites de prueba automáticas** antes del **merge**.
 
----
+
 
 ## **📝 Política de Licencias y Uso**
 
@@ -173,7 +173,7 @@ El **código fuente** se proporciona con fines de **transparencia educativa** y 
 
 Los contribuyentes deben **firmar acuerdos de transferencia de derechos intelectuales** antes de que sus contribuciones sean incorporadas al **código base principal**.
 
----
+
 
 ## **🆘 Sistema de Soporte Técnico**
 
