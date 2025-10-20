@@ -172,10 +172,10 @@ WebSockets, almacena datos temporalmente en memoria y genera reportes. La comuni
   Este software es desarrollado y distribuido bajo licencia propietaria de la Universidad, reservando todos los derechos. Su uso está autorizado exclusivamente para fines educativos dentro de la institución, prohibiéndose la distribución, modificación o uso comercial sin autorización expresa. El código fuente se proporciona con fines de transparencia educativa y desarrollo colaborativo interno. Los contribuyentes deben firmar acuerdos de transferencia de derechos intelectuales antes de que sus contribuciones sean incorporadas al código base principal.
 </p>
 
-## **🆘 Sistema de Soporte Técnico**
+## **🛠 Herramientas de Desarrollo Utilizadas**
 
 <p>
-  El soporte técnico se estructura en tres niveles: documentación automática para problemas comunes, asistencia entre pares para la comunidad de desarrolladores y soporte especializado para incidentes críticos. La documentación incluye guías de instalación, solución de problemas y preguntas frecuentes. Para reportar issues, los usuarios utilizan plantillas estandarizadas que capturan información esencial del entorno y pasos para reproducir problemas. El equipo de desarrollo prioriza incidentes según severidad, con tiempos de respuesta definidos para cada categoría de problema.
+  El proyecto fue desarrollado utilizando un stack tecnológico moderno y herramientas de vanguardia para garantizar eficiencia y colaboración. GitHub se empleó para el control de versiones y gestión del repositorio, facilitando el trabajo colaborativo mediante ramas y pull requests. Docker se implementó para containerizar la aplicación, asegurando consistencia entre entornos de desarrollo y producción. Visual Studio Code sirvió como editor principal, aprovechando extensiones especializadas para Ionic, Angular y Node.js que mejoraron la productividad. Esta combinación de herramientas permitió un flujo de desarrollo ágil, desde la codificación hasta el despliegue, manteniendo altos estándares de calidad en el código.
 </p>
 
 
